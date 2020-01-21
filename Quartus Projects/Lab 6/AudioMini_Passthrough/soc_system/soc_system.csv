@@ -1,0 +1,34 @@
+# system info soc_system on 2019.11.12.12:17:16
+system_info:
+name,value
+DEVICE,5CSEBA6U23I7
+DEVICE_FAMILY,Cyclone V
+GENERATION_ID,1573586193
+#
+#
+# Files generated for soc_system on 2019.11.12.12:17:16
+files:
+filepath,kind,attributes,module,is_top
+simulation/soc_system.vhd,VHDL,,soc_system,true
+simulation/soc_system_rst_controller.vhd,VHDL,,soc_system,false
+simulation/soc_system_rst_controller_001.vhd,VHDL,,soc_system,false
+simulation/submodules/soc_system_PLL_using_AD1939_MCLK.vho,VHDL,,soc_system_PLL_using_AD1939_MCLK,false
+#
+# Map from instance-path to kind of module
+instances:
+instancePath,module
+soc_system.PLL_using_AD1939_MCLK,soc_system_PLL_using_AD1939_MCLK
+soc_system.Qsys_LED_control_0,soc_system_Qsys_LED_control_0
+soc_system.SystemID,soc_system_SystemID
+soc_system.hps,soc_system_hps
+soc_system.jtag_mm1,soc_system_jtag_mm1
+soc_system.jtag_uart,soc_system_jtag_uart
+soc_system.onchip_memory,soc_system_onchip_memory
+soc_system.mm_interconnect_0,soc_system_mm_interconnect_0
+soc_system.mm_interconnect_1,soc_system_mm_interconnect_1
+soc_system.irq_mapper,soc_system_irq_mapper
+soc_system.irq_mapper_001,soc_system_irq_mapper_001
+soc_system.rst_controller,altera_reset_controller
+soc_system.rst_controller_001,altera_reset_controller
+soc_system.rst_controller,altera_reset_controller
+soc_system.rst_controller_001,altera_reset_controller

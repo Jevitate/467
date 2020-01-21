@@ -1,0 +1,53 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "AD1939_spi_CLATCH_n",
+					"strict" : false
+				},
+				{
+					"name" : "Audio_Mini_LEDs[0]",
+					"strict" : false
+				},
+				{
+					"name" : "Audio_Mini_LEDs[1]",
+					"strict" : false
+				},
+				{
+					"name" : "Audio_Mini_LEDs[2]",
+					"strict" : false
+				},
+				{
+					"name" : "Audio_Mini_LEDs[3]",
+					"strict" : false
+				},
+				{
+					"name" : "Audio_Mini_SWITCHES[0]",
+					"strict" : false
+				},
+				{
+					"name" : "Audio_Mini_SWITCHES[1]",
+					"strict" : false
+				},
+				{
+					"name" : "Audio_Mini_SWITCHES[2]",
+					"strict" : false
+				},
+				{
+					"name" : "Audio_Mini_SWITCHES[3]",
+					"strict" : false
+				},
+				{
+					"name" : "FPGA_CLK1_50",
+					"strict" : false
+				},
+				{
+					"name" : "KEY[1]",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

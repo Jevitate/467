@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<simPackage>
+ <file
+   path="simulation/submodules/soc_system_PLL_using_AD1939_MCLK.vho"
+   type="VHDL"
+   library="PLL_using_AD1939_MCLK" />
+ <file path="simulation/soc_system.vhd" type="VHDL" />
+ <file path="simulation/soc_system_rst_controller.vhd" type="VHDL" />
+ <file path="simulation/soc_system_rst_controller_001.vhd" type="VHDL" />
+ <topLevel name="soc_system" />
+ <deviceFamily name="cyclonev" />
+ <modelMap controllerPath="soc_system.hps" modelPath="soc_system.hps" />
+ <modelMap
+   controllerPath="soc_system.hps.fpga_interfaces"
+   modelPath="soc_system.hps.fpga_interfaces" />
+ <modelMap
+   controllerPath="soc_system.hps.hps_io"
+   modelPath="soc_system.hps.hps_io" />
+ <modelMap
+   controllerPath="soc_system.onchip_memory"
+   modelPath="soc_system.onchip_memory" />
+</simPackage>

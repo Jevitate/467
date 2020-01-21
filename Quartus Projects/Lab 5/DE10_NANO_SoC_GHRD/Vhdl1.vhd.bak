@@ -1,0 +1,18 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
+use IEEE.std_logic_unsigned.all;
+
+
+entity Qsys_LED_control is
+	port(
+			clk		: in std_logic;
+			reset_n	: in std_logic;
+			avs_s1_address : in std_logic_vector(1 downto 0);
+			avs_s1_write : in std_logic;
+			avs_s1_writedata : std_logic_vector(31 downto 0);
+			avs_s1_read : in std_logic;
+			avs_s1_readdata : out std_logic_vector(31 downto 0);
+			swithces : in std_logic_vector(3 downto 0);
+			pushbutton : in std_logic;
+			LEDs : out std_logic_vector(7 downto 0));

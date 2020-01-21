@@ -1,0 +1,190 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
+use IEEE.std_logic_unsigned.all;
+
+
+entity alu is 
+	port(
+	A					: in signed(31 downto 0);
+	B					: in signed(31 downto 0);
+	ALU_Control		: in std_logic_vector(2 downto 0);
+	
+	ZNF				: out std_logic_vector(2 downto 0);
+	ALU_Result		: out std_logic_vector(63 downto 0)
+	);
+end entity;
+
+
+architecture alu_arch of alu is
+
+	signal sum_unsigned		: unsigned(32 downto 0);
+	signal mult_unsigned		: signed(63 downto 0);
+	signal dummy_AB			: std_logic_vector(31 downto 0);
+	
+	
+	begin
+	
+	ALU_Process : process(A, B, ALU_Control)
+	
+		begin
+		
+			case ALU_Control is
+				
+				when "000" => 
+				
+									-- Nothing Happens --
+----------------------------------------------------------------------------------------------------				
+				when "001" =>
+					
+										-- Sum --
+					
+					ALU_Result <= std_logic_vector(to_unsigned(0, 64));
+					sum_unsigned <= unsigned('0' & A) + unsigned('0' & B);
+					ALU_Result(32 downto 0) <= std_logic_vector(sum_unsigned);
+					
+									-- 0000 -> 0ZNF -- 
+					
+									-- Zero Flag --
+					
+					if(sum_unsigned(31 downto 0) = 0) then
+						ZNF(2) <= '1';
+					else
+						ZNF(2) <= '0';
+					end if;
+					
+									-- Negative Flag --
+					
+					ZNF(1) <= sum_unsigned(31);
+						
+									-- Overflow Flag/Carry Flag, Uses both registers --
+					
+					ZNF(0) <= sum_unsigned(32);
+----------------------------------------------------------------------------------------------------					
+						
+				when "010" =>
+				
+									-- Sub --
+									
+					ALU_Result <= std_logic_vector(to_unsigned(0, 64));
+					sum_unsigned <= unsigned('0' & A) - unsigned('0' & B);
+					ALU_Result(32 downto 0) <= std_logic_vector(sum_unsigned);
+					
+									-- 0000 -> 0ZNF --
+					
+									-- Zero Flag --
+					
+					if(sum_unsigned(31 downto 0) = 0) then
+						ZNF(2) <= '1';
+					else
+						ZNF(2) <= '0';
+					end if;
+					
+									-- Negative Flag --
+					
+					ZNF(1) <= sum_unsigned(31);
+						
+									-- Overflow Flag/Carry Flag, Uses both registers -- 
+					
+					ZNF(0) <= sum_unsigned(32);
+					
+----------------------------------------------------------------------------------------------------				
+				when "011" =>
+				
+									-- Multiply A*B --	
+									
+					ALU_Result <= std_logic_vector(to_unsigned(0, 64));
+					mult_unsigned <= (signed(A) * signed(B));
+					ALU_Result <= std_logic_vector(mult_unsigned);
+				
+									-- Zero Flag --
+					
+					if(mult_unsigned = 0) then
+						ZNF(2) <= '1';
+					else
+						ZNF(2) <= '0';
+					end if;
+					
+									-- Negative Flag --
+					
+					ZNF(1) <= mult_unsigned(63);
+						
+									-- Overflow Flag/Carry Flag, Uses both registers -- 
+					
+					if(mult_unsigned(63 downto 32) > 0 and mult_unsigned(31 downto 0) > 0) then
+						ZNF(0) <= '1';
+					else
+						ZNF(0) <= '0';
+					end if;
+				
+----------------------------------------------------------------------------------------------------				
+				when "100" =>
+				
+									-- Decrement B --
+					dummy_AB <= std_logic_Vector(B - 1);
+					ALU_Result(31 downto 0) <= dummy_AB;
+					
+									-- Zero Flag --
+					
+					if(dummy_AB = 0) then
+						ZNF(2) <= '1';
+					else
+						ZNF(2) <= '0';
+					end if;
+					
+									-- Negative Flag --
+					
+					ZNF(1) <= dummy_AB(31);
+						
+									-- Overflow Flag/Carry Flag, Uses both registers -- 
+									
+					ZNF(0) <= '0';
+				
+					
+----------------------------------------------------------------------------------------------------				
+				when "101" =>
+				
+									-- Move A into Result --
+									
+					dummy_AB <= std_logic_vector(A);
+					ALU_Result(31 downto 0) <= dummy_AB;
+					
+									-- Zero Flag --
+					
+					if(dummy_AB = 0) then
+						ZNF(2) <= '1';
+					else
+						ZNF(2) <= '0';
+					end if;
+					
+									-- Negative Flag --
+					
+					ZNF(1) <= dummy_AB(31);
+						
+									-- Overflow Flag/Carry Flag, Uses both registers -- 
+									
+					ZNF(0) <= '0';
+	
+----------------------------------------------------------------------------------------------------				
+				when "110" =>
+				
+									-- Swap A <-> B --
+									
+				dummy_AB <= std_logic_vector(A);
+				ALU_Result(63 downto 32) <= std_logic_vector(B);
+				ALU_Result(31 downto 0) <= dummy_AB;
+				
+----------------------------------------------------------------------------------------------------				
+				when "111" => 
+				
+									-- Custom --
+----------------------------------------------------------------------------------------------------				
+				when others =>
+				
+									-- Catch Case --
+				
+			end case;
+	end process;
+	
+end architecture;
+

@@ -1,0 +1,752 @@
+Analysis & Synthesis report for DE10_Top_Level
+Mon Oct 28 21:28:58 2019
+Quartus Prime Version 17.1.1 Internal Build 593 12/11/2017 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis DSP Block Usage Summary
+  9. State Machine - |DE10_Top_Level|LED_control:LED1|current_state
+ 10. User-Specified and Inferred Latches
+ 11. Registers Removed During Synthesis
+ 12. Removed Registers Triggering Further Register Optimizations
+ 13. General Register Statistics
+ 14. Inverted Register Statistics
+ 15. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 16. Port Connectivity Checks: "LED_control:LED1|up_down_counter:downcount"
+ 17. Port Connectivity Checks: "LED_control:LED1|up_down_counter:upcount"
+ 18. Port Connectivity Checks: "LED_control:LED1|clk_changer:clk_change_4x"
+ 19. Port Connectivity Checks: "LED_control:LED1|clk_changer:clk_change_2x"
+ 20. Port Connectivity Checks: "LED_control:LED1"
+ 21. Post-Synthesis Netlist Statistics for Top Partition
+ 22. Elapsed Time Per Partition
+ 23. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2017  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++----------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                           ;
++---------------------------------+------------------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Mon Oct 28 21:28:58 2019                ;
+; Quartus Prime Version           ; 17.1.1 Internal Build 593 12/11/2017 SJ Lite Edition ;
+; Revision Name                   ; DE10_Top_Level                                       ;
+; Top-level Entity Name           ; DE10_Top_Level                                       ;
+; Family                          ; Cyclone V                                            ;
+; Logic utilization (in ALMs)     ; N/A                                                  ;
+; Total registers                 ; 224                                                  ;
+; Total pins                      ; 89                                                   ;
+; Total virtual pins              ; 0                                                    ;
+; Total block memory bits         ; 0                                                    ;
+; Total DSP Blocks                ; 6                                                    ;
+; Total HSSI RX PCSs              ; 0                                                    ;
+; Total HSSI PMA RX Deserializers ; 0                                                    ;
+; Total HSSI TX PCSs              ; 0                                                    ;
+; Total HSSI PMA TX Serializers   ; 0                                                    ;
+; Total PLLs                      ; 0                                                    ;
+; Total DLLs                      ; 0                                                    ;
++---------------------------------+------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                             ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; 5CSEBA6U23I7       ;                    ;
+; Top-level entity name                                                           ; DE10_Top_Level     ; DE10_Top_Level     ;
+; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation      ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                                   ; Enable             ; Enable             ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto               ; Auto               ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Optimization Technique                                                          ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; Power Optimization During Synthesis                                             ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
+; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 2           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 2           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
++----------------------------+-------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                       ;
++----------------------------------+-----------------+-----------------+-----------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                ; Library ;
++----------------------------------+-----------------+-----------------+-----------------------------------------------------------------------------+---------+
+; DE10_Top_Level.vhd               ; yes             ; User VHDL File  ; C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/DE10_Top_Level.vhd   ;         ;
+; LED_control.vhd                  ; yes             ; User VHDL File  ; C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/LED_control.vhd      ;         ;
+; PB_condition.vhd                 ; yes             ; User VHDL File  ; C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/PB_condition.vhd     ;         ;
+; shift_right.vhd                  ; yes             ; User VHDL File  ; C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/shift_right.vhd      ;         ;
+; up_down_counter.vhd              ; yes             ; User VHDL File  ; C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/up_down_counter.vhd  ;         ;
+; clk_changer.vhd                  ; yes             ; User VHDL File  ; C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/clk_changer.vhd      ;         ;
+; shift_left_2leds.vhd             ; yes             ; User VHDL File  ; C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/shift_left_2leds.vhd ;         ;
+; user_pattern.vhd                 ; yes             ; User VHDL File  ; C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/user_pattern.vhd     ;         ;
++----------------------------------+-----------------+-----------------+-----------------------------------------------------------------------------+---------+
+
+
++------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                      ;
++---------------------------------------------+--------------------+
+; Resource                                    ; Usage              ;
++---------------------------------------------+--------------------+
+; Estimate of Logic utilization (ALMs needed) ; 181                ;
+;                                             ;                    ;
+; Combinational ALUT usage for logic          ; 298                ;
+;     -- 7 input functions                    ; 0                  ;
+;     -- 6 input functions                    ; 59                 ;
+;     -- 5 input functions                    ; 12                 ;
+;     -- 4 input functions                    ; 8                  ;
+;     -- <=3 input functions                  ; 219                ;
+;                                             ;                    ;
+; Dedicated logic registers                   ; 224                ;
+;                                             ;                    ;
+; I/O pins                                    ; 89                 ;
+;                                             ;                    ;
+; Total DSP Blocks                            ; 6                  ;
+;                                             ;                    ;
+; Maximum fan-out node                        ; FPGA_CLK1_50~input ;
+; Maximum fan-out                             ; 171                ;
+; Total fan-out                               ; 1680               ;
+; Average fan-out                             ; 2.16               ;
++---------------------------------------------+--------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                   ;
++-----------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------+------------------+--------------+
+; Compilation Hierarchy Node              ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                              ; Entity Name      ; Library Name ;
++-----------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------+------------------+--------------+
+; |DE10_Top_Level                         ; 298 (0)             ; 224 (0)                   ; 0                 ; 6          ; 89   ; 0            ; |DE10_Top_Level                                                  ; DE10_Top_Level   ; work         ;
+;    |LED_control:LED1|                   ; 298 (88)            ; 224 (35)                  ; 0                 ; 6          ; 0    ; 0            ; |DE10_Top_Level|LED_control:LED1                                 ; LED_control      ; work         ;
+;       |PB_condition:Debouce_Button|     ; 43 (43)             ; 36 (36)                   ; 0                 ; 0          ; 0    ; 0            ; |DE10_Top_Level|LED_control:LED1|PB_condition:Debouce_Button     ; PB_condition     ; work         ;
+;       |clk_changer:clk_change_1x|       ; 47 (47)             ; 34 (34)                   ; 0                 ; 2          ; 0    ; 0            ; |DE10_Top_Level|LED_control:LED1|clk_changer:clk_change_1x       ; clk_changer      ; work         ;
+;       |clk_changer:clk_change_2x|       ; 47 (47)             ; 34 (34)                   ; 0                 ; 2          ; 0    ; 0            ; |DE10_Top_Level|LED_control:LED1|clk_changer:clk_change_2x       ; clk_changer      ; work         ;
+;       |clk_changer:clk_change_4x|       ; 47 (47)             ; 34 (34)                   ; 0                 ; 2          ; 0    ; 0            ; |DE10_Top_Level|LED_control:LED1|clk_changer:clk_change_4x       ; clk_changer      ; work         ;
+;       |shift_left_2leds:shifter_left_2| ; 6 (6)               ; 14 (14)                   ; 0                 ; 0          ; 0    ; 0            ; |DE10_Top_Level|LED_control:LED1|shift_left_2leds:shifter_left_2 ; shift_left_2leds ; work         ;
+;       |shift_right_leds:shifter_right|  ; 2 (2)               ; 14 (14)                   ; 0                 ; 0          ; 0    ; 0            ; |DE10_Top_Level|LED_control:LED1|shift_right_leds:shifter_right  ; shift_right_leds ; work         ;
+;       |up_down_counter:downcount|       ; 7 (7)               ; 7 (7)                     ; 0                 ; 0          ; 0    ; 0            ; |DE10_Top_Level|LED_control:LED1|up_down_counter:downcount       ; up_down_counter  ; work         ;
+;       |up_down_counter:upcount|         ; 7 (7)               ; 7 (7)                     ; 0                 ; 0          ; 0    ; 0            ; |DE10_Top_Level|LED_control:LED1|up_down_counter:upcount         ; up_down_counter  ; work         ;
+;       |user_pattern:somekindathing|     ; 4 (4)               ; 9 (9)                     ; 0                 ; 0          ; 0    ; 0            ; |DE10_Top_Level|LED_control:LED1|user_pattern:somekindathing     ; user_pattern     ; work         ;
++-----------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------+------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-----------------------------------------------+
+; Analysis & Synthesis DSP Block Usage Summary  ;
++---------------------------------+-------------+
+; Statistic                       ; Number Used ;
++---------------------------------+-------------+
+; Two Independent 18x18           ; 3           ;
+; Independent 18x18 plus 36       ; 3           ;
+; Total number of DSP blocks      ; 6           ;
+;                                 ;             ;
+; Fixed Point Unsigned Multiplier ; 6           ;
++---------------------------------+-------------+
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |DE10_Top_Level|LED_control:LED1|current_state                                                                     ;
++------------------+------------------+------------------+------------------+------------------+------------------+------------------+
+; Name             ; current_state.s5 ; current_state.s4 ; current_state.s3 ; current_state.s2 ; current_state.s1 ; current_state.s0 ;
++------------------+------------------+------------------+------------------+------------------+------------------+------------------+
+; current_state.s0 ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ;
+; current_state.s1 ; 0                ; 0                ; 0                ; 0                ; 1                ; 1                ;
+; current_state.s2 ; 0                ; 0                ; 0                ; 1                ; 0                ; 1                ;
+; current_state.s3 ; 0                ; 0                ; 1                ; 0                ; 0                ; 1                ;
+; current_state.s4 ; 0                ; 1                ; 0                ; 0                ; 0                ; 1                ;
+; current_state.s5 ; 1                ; 0                ; 0                ; 0                ; 0                ; 1                ;
++------------------+------------------+------------------+------------------+------------------+------------------+------------------+
+
+
++---------------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                           ;
++-----------------------------------------------------+--------------------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal            ; Free of Timing Hazards ;
++-----------------------------------------------------+--------------------------------+------------------------+
+; LED_control:LED1|next_state.s5_648                  ; LED_control:LED1|next_state.s5 ; yes                    ;
+; LED_control:LED1|next_state.s4_656                  ; LED_control:LED1|next_state.s5 ; yes                    ;
+; LED_control:LED1|next_state.s3_664                  ; LED_control:LED1|next_state.s5 ; yes                    ;
+; LED_control:LED1|next_state.s2_672                  ; LED_control:LED1|next_state.s5 ; yes                    ;
+; LED_control:LED1|next_state.s1_680                  ; LED_control:LED1|next_state.s5 ; yes                    ;
+; LED_control:LED1|next_state.s0_688                  ; LED_control:LED1|next_state.s5 ; yes                    ;
+; LED_control:LED1|flag                               ; GND                            ; yes                    ;
+; LED_control:LED1|LED_state.s4_572                   ; LED_control:LED1|LED_state.s5  ; yes                    ;
+; LED_control:LED1|LED_state.s3_588                   ; LED_control:LED1|LED_state.s5  ; yes                    ;
+; LED_control:LED1|LED_state.s2_604                   ; LED_control:LED1|LED_state.s5  ; yes                    ;
+; LED_control:LED1|LED_state.s1_620                   ; LED_control:LED1|LED_state.s5  ; yes                    ;
+; LED_control:LED1|LED_state.s0_636                   ; LED_control:LED1|LED_state.s5  ; yes                    ;
+; LED_control:LED1|PB_condition:Debouce_Button|pbout  ; GND                            ; yes                    ;
+; Number of user-specified and inferred latches = 13  ;                                ;                        ;
++-----------------------------------------------------+--------------------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++--------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                   ;
++-----------------------------------------------------------+--------------------------------------------------------------------------+
+; Register name                                             ; Reason for Removal                                                       ;
++-----------------------------------------------------------+--------------------------------------------------------------------------+
+; LED_control:LED1|user_pattern:somekindathing|top_piece[0] ; Merged with LED_control:LED1|user_pattern:somekindathing|bottom_piece[3] ;
+; LED_control:LED1|user_pattern:somekindathing|top_piece[1] ; Merged with LED_control:LED1|user_pattern:somekindathing|bottom_piece[2] ;
+; LED_control:LED1|user_pattern:somekindathing|LED[4]       ; Merged with LED_control:LED1|user_pattern:somekindathing|LED[2]          ;
+; LED_control:LED1|user_pattern:somekindathing|top_piece[2] ; Merged with LED_control:LED1|user_pattern:somekindathing|bottom_piece[1] ;
+; LED_control:LED1|user_pattern:somekindathing|LED[5]       ; Merged with LED_control:LED1|user_pattern:somekindathing|LED[1]          ;
+; LED_control:LED1|user_pattern:somekindathing|top_piece[3] ; Merged with LED_control:LED1|user_pattern:somekindathing|bottom_piece[0] ;
+; LED_control:LED1|current_state.s0                         ; Lost fanout                                                              ;
+; LED_control:LED1|current_state.s1                         ; Lost fanout                                                              ;
+; LED_control:LED1|current_state.s2                         ; Lost fanout                                                              ;
+; LED_control:LED1|current_state.s3                         ; Lost fanout                                                              ;
+; LED_control:LED1|current_state.s4                         ; Lost fanout                                                              ;
+; LED_control:LED1|current_state.s5                         ; Lost fanout                                                              ;
+; LED_control:LED1|up_down_counter:downcount|counter[7..31] ; Lost fanout                                                              ;
+; LED_control:LED1|up_down_counter:upcount|counter[7..31]   ; Lost fanout                                                              ;
+; Total Number of Removed Registers = 62                    ;                                                                          ;
++-----------------------------------------------------------+--------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                           ;
++--------------------------------------------------------+--------------------+---------------------------------------------------------+
+; Register name                                          ; Reason for Removal ; Registers Removed due to This Register                  ;
++--------------------------------------------------------+--------------------+---------------------------------------------------------+
+; LED_control:LED1|up_down_counter:downcount|counter[31] ; Lost Fanouts       ; LED_control:LED1|up_down_counter:downcount|counter[30], ;
+;                                                        ;                    ; LED_control:LED1|up_down_counter:downcount|counter[29], ;
+;                                                        ;                    ; LED_control:LED1|up_down_counter:downcount|counter[28], ;
+;                                                        ;                    ; LED_control:LED1|up_down_counter:downcount|counter[27], ;
+;                                                        ;                    ; LED_control:LED1|up_down_counter:downcount|counter[26], ;
+;                                                        ;                    ; LED_control:LED1|up_down_counter:downcount|counter[25], ;
+;                                                        ;                    ; LED_control:LED1|up_down_counter:downcount|counter[24], ;
+;                                                        ;                    ; LED_control:LED1|up_down_counter:downcount|counter[23], ;
+;                                                        ;                    ; LED_control:LED1|up_down_counter:downcount|counter[22], ;
+;                                                        ;                    ; LED_control:LED1|up_down_counter:downcount|counter[21], ;
+;                                                        ;                    ; LED_control:LED1|up_down_counter:downcount|counter[20], ;
+;                                                        ;                    ; LED_control:LED1|up_down_counter:downcount|counter[19], ;
+;                                                        ;                    ; LED_control:LED1|up_down_counter:downcount|counter[18], ;
+;                                                        ;                    ; LED_control:LED1|up_down_counter:downcount|counter[17], ;
+;                                                        ;                    ; LED_control:LED1|up_down_counter:downcount|counter[16], ;
+;                                                        ;                    ; LED_control:LED1|up_down_counter:downcount|counter[15], ;
+;                                                        ;                    ; LED_control:LED1|up_down_counter:downcount|counter[14], ;
+;                                                        ;                    ; LED_control:LED1|up_down_counter:downcount|counter[13], ;
+;                                                        ;                    ; LED_control:LED1|up_down_counter:downcount|counter[12], ;
+;                                                        ;                    ; LED_control:LED1|up_down_counter:downcount|counter[11], ;
+;                                                        ;                    ; LED_control:LED1|up_down_counter:downcount|counter[10], ;
+;                                                        ;                    ; LED_control:LED1|up_down_counter:downcount|counter[9],  ;
+;                                                        ;                    ; LED_control:LED1|up_down_counter:downcount|counter[8],  ;
+;                                                        ;                    ; LED_control:LED1|up_down_counter:downcount|counter[7]   ;
+; LED_control:LED1|up_down_counter:upcount|counter[31]   ; Lost Fanouts       ; LED_control:LED1|up_down_counter:upcount|counter[30],   ;
+;                                                        ;                    ; LED_control:LED1|up_down_counter:upcount|counter[29],   ;
+;                                                        ;                    ; LED_control:LED1|up_down_counter:upcount|counter[28],   ;
+;                                                        ;                    ; LED_control:LED1|up_down_counter:upcount|counter[27],   ;
+;                                                        ;                    ; LED_control:LED1|up_down_counter:upcount|counter[26],   ;
+;                                                        ;                    ; LED_control:LED1|up_down_counter:upcount|counter[25],   ;
+;                                                        ;                    ; LED_control:LED1|up_down_counter:upcount|counter[24],   ;
+;                                                        ;                    ; LED_control:LED1|up_down_counter:upcount|counter[23],   ;
+;                                                        ;                    ; LED_control:LED1|up_down_counter:upcount|counter[22],   ;
+;                                                        ;                    ; LED_control:LED1|up_down_counter:upcount|counter[21],   ;
+;                                                        ;                    ; LED_control:LED1|up_down_counter:upcount|counter[20],   ;
+;                                                        ;                    ; LED_control:LED1|up_down_counter:upcount|counter[19],   ;
+;                                                        ;                    ; LED_control:LED1|up_down_counter:upcount|counter[18],   ;
+;                                                        ;                    ; LED_control:LED1|up_down_counter:upcount|counter[17],   ;
+;                                                        ;                    ; LED_control:LED1|up_down_counter:upcount|counter[16],   ;
+;                                                        ;                    ; LED_control:LED1|up_down_counter:upcount|counter[15],   ;
+;                                                        ;                    ; LED_control:LED1|up_down_counter:upcount|counter[14],   ;
+;                                                        ;                    ; LED_control:LED1|up_down_counter:upcount|counter[13],   ;
+;                                                        ;                    ; LED_control:LED1|up_down_counter:upcount|counter[12],   ;
+;                                                        ;                    ; LED_control:LED1|up_down_counter:upcount|counter[11],   ;
+;                                                        ;                    ; LED_control:LED1|up_down_counter:upcount|counter[10],   ;
+;                                                        ;                    ; LED_control:LED1|up_down_counter:upcount|counter[9],    ;
+;                                                        ;                    ; LED_control:LED1|up_down_counter:upcount|counter[8],    ;
+;                                                        ;                    ; LED_control:LED1|up_down_counter:upcount|counter[7]     ;
++--------------------------------------------------------+--------------------+---------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 224   ;
+; Number of registers using Synchronous Clear  ; 174   ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 52    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 24    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++------------------------------------------------------------------------+
+; Inverted Register Statistics                                           ;
++--------------------------------------------------------------+---------+
+; Inverted Register                                            ; Fan out ;
++--------------------------------------------------------------+---------+
+; LED_control:LED1|shift_left_2leds:shifter_left_2|LED[3]      ; 1       ;
+; LED_control:LED1|shift_left_2leds:shifter_left_2|LED[4]      ; 1       ;
+; LED_control:LED1|shift_right_leds:shifter_right|LED[6]       ; 1       ;
+; LED_control:LED1|user_pattern:somekindathing|LED[6]          ; 1       ;
+; LED_control:LED1|user_pattern:somekindathing|bottom_piece[3] ; 2       ;
+; LED_control:LED1|shift_left_2leds:shifter_left_2|shifter[5]  ; 2       ;
+; LED_control:LED1|shift_left_2leds:shifter_left_2|shifter[6]  ; 2       ;
+; LED_control:LED1|shift_right_leds:shifter_right|shifter[6]   ; 2       ;
+; Total number of inverted registers = 8                       ;         ;
++--------------------------------------------------------------+---------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                               ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------+
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |DE10_Top_Level|LED_control:LED1|LED_state.s3  ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |DE10_Top_Level|LED_control:LED1|Selector0     ;
+; 6:1                ; 4 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |DE10_Top_Level|LED_control:LED1|Selector3     ;
+; 7:1                ; 5 bits    ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; No         ; |DE10_Top_Level|LED_control:LED1|next_state.s0 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------+
+
+
++------------------------------------------------------------------------+
+; Port Connectivity Checks: "LED_control:LED1|up_down_counter:downcount" ;
++---------+-------+----------+-------------------------------------------+
+; Port    ; Type  ; Severity ; Details                                   ;
++---------+-------+----------+-------------------------------------------+
+; up_down ; Input ; Info     ; Stuck at GND                              ;
++---------+-------+----------+-------------------------------------------+
+
+
++----------------------------------------------------------------------+
+; Port Connectivity Checks: "LED_control:LED1|up_down_counter:upcount" ;
++---------+-------+----------+-----------------------------------------+
+; Port    ; Type  ; Severity ; Details                                 ;
++---------+-------+----------+-----------------------------------------+
+; up_down ; Input ; Info     ; Stuck at VCC                            ;
++---------+-------+----------+-----------------------------------------+
+
+
++------------------------------------------------------------------------+
+; Port Connectivity Checks: "LED_control:LED1|clk_changer:clk_change_4x" ;
++--------------------+-------+----------+--------------------------------+
+; Port               ; Type  ; Severity ; Details                        ;
++--------------------+-------+----------+--------------------------------+
+; changer_base[7..6] ; Input ; Info     ; Stuck at GND                   ;
++--------------------+-------+----------+--------------------------------+
+
+
++------------------------------------------------------------------------+
+; Port Connectivity Checks: "LED_control:LED1|clk_changer:clk_change_2x" ;
++-----------------+-------+----------+-----------------------------------+
+; Port            ; Type  ; Severity ; Details                           ;
++-----------------+-------+----------+-----------------------------------+
+; changer_base[7] ; Input ; Info     ; Stuck at GND                      ;
++-----------------+-------+----------+-----------------------------------+
+
+
++--------------------------------------------------------+
+; Port Connectivity Checks: "LED_control:LED1"           ;
++----------------------+-------+----------+--------------+
+; Port                 ; Type  ; Severity ; Details      ;
++----------------------+-------+----------+--------------+
+; hs_led_control       ; Input ; Info     ; Stuck at GND ;
+; sys_clks_sec[23..19] ; Input ; Info     ; Stuck at VCC ;
+; sys_clks_sec[15..12] ; Input ; Info     ; Stuck at VCC ;
+; sys_clks_sec[31..26] ; Input ; Info     ; Stuck at GND ;
+; sys_clks_sec[11..8]  ; Input ; Info     ; Stuck at GND ;
+; sys_clks_sec[6..0]   ; Input ; Info     ; Stuck at GND ;
+; sys_clks_sec[25]     ; Input ; Info     ; Stuck at VCC ;
+; sys_clks_sec[24]     ; Input ; Info     ; Stuck at GND ;
+; sys_clks_sec[18]     ; Input ; Info     ; Stuck at GND ;
+; sys_clks_sec[17]     ; Input ; Info     ; Stuck at VCC ;
+; sys_clks_sec[16]     ; Input ; Info     ; Stuck at GND ;
+; sys_clks_sec[7]      ; Input ; Info     ; Stuck at VCC ;
+; base_rate[7..5]      ; Input ; Info     ; Stuck at GND ;
+; base_rate[3..0]      ; Input ; Info     ; Stuck at GND ;
+; base_rate[4]         ; Input ; Info     ; Stuck at VCC ;
+; led_reg[7]           ; Input ; Info     ; Stuck at VCC ;
+; led_reg[6]           ; Input ; Info     ; Stuck at GND ;
+; led_reg[5]           ; Input ; Info     ; Stuck at VCC ;
+; led_reg[4]           ; Input ; Info     ; Stuck at GND ;
+; led_reg[3]           ; Input ; Info     ; Stuck at VCC ;
+; led_reg[2]           ; Input ; Info     ; Stuck at GND ;
+; led_reg[1]           ; Input ; Info     ; Stuck at VCC ;
+; led_reg[0]           ; Input ; Info     ; Stuck at GND ;
++----------------------+-------+----------+--------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 224                         ;
+;     CLR               ; 20                          ;
+;     CLR SCLR          ; 32                          ;
+;     ENA               ; 24                          ;
+;     SCLR              ; 142                         ;
+;     plain             ; 6                           ;
+; arriav_io_obuf        ; 72                          ;
+; arriav_lcell_comb     ; 298                         ;
+;     arith             ; 174                         ;
+;         1 data inputs ; 174                         ;
+;     normal            ; 124                         ;
+;         1 data inputs ; 16                          ;
+;         2 data inputs ; 14                          ;
+;         3 data inputs ; 15                          ;
+;         4 data inputs ; 8                           ;
+;         5 data inputs ; 12                          ;
+;         6 data inputs ; 59                          ;
+; arriav_mac            ; 6                           ;
+; boundary_port         ; 89                          ;
+;                       ;                             ;
+; Max LUT depth         ; 4.10                        ;
+; Average LUT depth     ; 2.53                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:01     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 17.1.1 Internal Build 593 12/11/2017 SJ Lite Edition
+    Info: Processing started: Mon Oct 28 21:28:40 2019
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off lab4 -c DE10_Top_Level
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file de10_top_level.vhd
+    Info (12022): Found design unit 1: DE10_Top_Level-DE10_arch File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/DE10_Top_Level.vhd Line: 53
+    Info (12023): Found entity 1: DE10_Top_Level File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/DE10_Top_Level.vhd Line: 16
+Info (12021): Found 2 design units, including 1 entities, in source file dflipflop.vhd
+    Info (12022): Found design unit 1: Dflipflop-Dflipflop_arch File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/dflipflop.vhd Line: 12
+    Info (12023): Found entity 1: Dflipflop File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/dflipflop.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file led_control.vhd
+    Info (12022): Found design unit 1: LED_control-LED_control_arch File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/LED_control.vhd Line: 24
+    Info (12023): Found entity 1: LED_control File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/LED_control.vhd Line: 8
+Info (12021): Found 2 design units, including 1 entities, in source file pb_condition.vhd
+    Info (12022): Found design unit 1: PB_condition-PB_condition_arch File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/PB_condition.vhd Line: 14
+    Info (12023): Found entity 1: PB_condition File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/PB_condition.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file shift_right.vhd
+    Info (12022): Found design unit 1: shift_right_leds-shift_right_arch File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/shift_right.vhd Line: 12
+    Info (12023): Found entity 1: shift_right_leds File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/shift_right.vhd Line: 6
+Warning (12019): Can't analyze file -- file clock_converter.vhd is missing
+Info (12021): Found 2 design units, including 1 entities, in source file up_down_counter.vhd
+    Info (12022): Found design unit 1: up_down_counter-up_down_counter_arch File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/up_down_counter.vhd Line: 16
+    Info (12023): Found entity 1: up_down_counter File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/up_down_counter.vhd Line: 6
+Warning (12019): Can't analyze file -- file Vhdl5.vhd is missing
+Info (12021): Found 2 design units, including 1 entities, in source file clk_changer.vhd
+    Info (12022): Found design unit 1: clk_changer-clk_changer_arch File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/clk_changer.vhd Line: 16
+    Info (12023): Found entity 1: clk_changer File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/clk_changer.vhd Line: 7
+Info (12021): Found 2 design units, including 1 entities, in source file shift_left_2leds.vhd
+    Info (12022): Found design unit 1: shift_left_2leds-shift_left_arch File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/shift_left_2leds.vhd Line: 13
+    Info (12023): Found entity 1: shift_left_2leds File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/shift_left_2leds.vhd Line: 7
+Warning (12019): Can't analyze file -- file up_counter.vhd is missing
+Info (12021): Found 2 design units, including 1 entities, in source file user_pattern.vhd
+    Info (12022): Found design unit 1: user_pattern-user_pattern_arch File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/user_pattern.vhd Line: 12
+    Info (12023): Found entity 1: user_pattern File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/user_pattern.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file led_light.vhd
+    Info (12022): Found design unit 1: LED_light-LED_light_arch File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/LED_light.vhd Line: 15
+    Info (12023): Found entity 1: LED_light File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/LED_light.vhd Line: 6
+Info (12127): Elaborating entity "DE10_Top_Level" for the top level hierarchy
+Info (12128): Elaborating entity "LED_control" for hierarchy "LED_control:LED1" File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/DE10_Top_Level.vhd Line: 76
+Warning (10036): Verilog HDL or VHDL warning at LED_control.vhd(40): object "control" assigned a value but never read File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/LED_control.vhd Line: 40
+Warning (10036): Verilog HDL or VHDL warning at LED_control.vhd(46): object "current_state" assigned a value but never read File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/LED_control.vhd Line: 46
+Warning (10492): VHDL Process Statement warning at LED_control.vhd(153): signal "HS_LED_control" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/LED_control.vhd Line: 153
+Warning (10492): VHDL Process Statement warning at LED_control.vhd(155): signal "HS_LED_control" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/LED_control.vhd Line: 155
+Warning (10492): VHDL Process Statement warning at LED_control.vhd(195): signal "counter_flag" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/LED_control.vhd Line: 195
+Warning (10492): VHDL Process Statement warning at LED_control.vhd(195): signal "flag" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/LED_control.vhd Line: 195
+Warning (10492): VHDL Process Statement warning at LED_control.vhd(217): signal "LED_state" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/LED_control.vhd Line: 217
+Warning (10631): VHDL Process Statement warning at LED_control.vhd(186): inferring latch(es) for signal or variable "next_state", which holds its previous value in one or more paths through the process File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/LED_control.vhd Line: 186
+Warning (10631): VHDL Process Statement warning at LED_control.vhd(186): inferring latch(es) for signal or variable "flag", which holds its previous value in one or more paths through the process File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/LED_control.vhd Line: 186
+Warning (10631): VHDL Process Statement warning at LED_control.vhd(186): inferring latch(es) for signal or variable "LED_state", which holds its previous value in one or more paths through the process File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/LED_control.vhd Line: 186
+Warning (10492): VHDL Process Statement warning at LED_control.vhd(231): signal "LED_reg" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/LED_control.vhd Line: 231
+Warning (10492): VHDL Process Statement warning at LED_control.vhd(235): signal "light_em_up" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/LED_control.vhd Line: 235
+Warning (10492): VHDL Process Statement warning at LED_control.vhd(237): signal "light_em_up_left_2leds" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/LED_control.vhd Line: 237
+Warning (10492): VHDL Process Statement warning at LED_control.vhd(239): signal "light_em_up_up" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/LED_control.vhd Line: 239
+Warning (10492): VHDL Process Statement warning at LED_control.vhd(241): signal "light_em_up_down" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/LED_control.vhd Line: 241
+Warning (10492): VHDL Process Statement warning at LED_control.vhd(243): signal "light_em_up_user" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/LED_control.vhd Line: 243
+Warning (10492): VHDL Process Statement warning at LED_control.vhd(245): signal "SW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/LED_control.vhd Line: 245
+Info (10041): Inferred latch for "LED_state.s5" at LED_control.vhd(186) File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/LED_control.vhd Line: 186
+Info (10041): Inferred latch for "LED_state.s4" at LED_control.vhd(186) File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/LED_control.vhd Line: 186
+Info (10041): Inferred latch for "LED_state.s3" at LED_control.vhd(186) File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/LED_control.vhd Line: 186
+Info (10041): Inferred latch for "LED_state.s2" at LED_control.vhd(186) File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/LED_control.vhd Line: 186
+Info (10041): Inferred latch for "LED_state.s1" at LED_control.vhd(186) File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/LED_control.vhd Line: 186
+Info (10041): Inferred latch for "LED_state.s0" at LED_control.vhd(186) File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/LED_control.vhd Line: 186
+Info (10041): Inferred latch for "flag" at LED_control.vhd(186) File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/LED_control.vhd Line: 186
+Info (10041): Inferred latch for "next_state.s5" at LED_control.vhd(186) File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/LED_control.vhd Line: 186
+Info (10041): Inferred latch for "next_state.s4" at LED_control.vhd(186) File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/LED_control.vhd Line: 186
+Info (10041): Inferred latch for "next_state.s3" at LED_control.vhd(186) File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/LED_control.vhd Line: 186
+Info (10041): Inferred latch for "next_state.s2" at LED_control.vhd(186) File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/LED_control.vhd Line: 186
+Info (10041): Inferred latch for "next_state.s1" at LED_control.vhd(186) File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/LED_control.vhd Line: 186
+Info (10041): Inferred latch for "next_state.s0" at LED_control.vhd(186) File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/LED_control.vhd Line: 186
+Info (12128): Elaborating entity "PB_condition" for hierarchy "LED_control:LED1|PB_condition:Debouce_Button" File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/LED_control.vhd Line: 100
+Warning (10492): VHDL Process Statement warning at PB_condition.vhd(49): signal "PB_db" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/PB_condition.vhd Line: 49
+Warning (10492): VHDL Process Statement warning at PB_condition.vhd(49): signal "PB_push" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/PB_condition.vhd Line: 49
+Warning (10492): VHDL Process Statement warning at PB_condition.vhd(51): signal "PB_db" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/PB_condition.vhd Line: 51
+Warning (10492): VHDL Process Statement warning at PB_condition.vhd(51): signal "PB_push" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/PB_condition.vhd Line: 51
+Warning (10631): VHDL Process Statement warning at PB_condition.vhd(45): inferring latch(es) for signal or variable "pbout", which holds its previous value in one or more paths through the process File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/PB_condition.vhd Line: 45
+Info (10041): Inferred latch for "pbout" at PB_condition.vhd(45) File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/PB_condition.vhd Line: 45
+Info (12128): Elaborating entity "clk_changer" for hierarchy "LED_control:LED1|clk_changer:clk_change_1x" File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/LED_control.vhd Line: 106
+Info (12128): Elaborating entity "shift_right_leds" for hierarchy "LED_control:LED1|shift_right_leds:shifter_right" File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/LED_control.vhd Line: 124
+Info (12128): Elaborating entity "shift_left_2leds" for hierarchy "LED_control:LED1|shift_left_2leds:shifter_left_2" File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/LED_control.vhd Line: 129
+Info (12128): Elaborating entity "up_down_counter" for hierarchy "LED_control:LED1|up_down_counter:upcount" File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/LED_control.vhd Line: 134
+Warning (10492): VHDL Process Statement warning at up_down_counter.vhd(42): signal "counter" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/up_down_counter.vhd Line: 42
+Info (12128): Elaborating entity "user_pattern" for hierarchy "LED_control:LED1|user_pattern:somekindathing" File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/LED_control.vhd Line: 146
+Warning (10540): VHDL Signal Declaration warning at user_pattern.vhd(14): used explicit default value for signal "shifter" because signal was never assigned a value File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/user_pattern.vhd Line: 14
+Warning (13039): The following bidirectional pins have no drivers
+    Warning (13040): bidirectional pin "GPIO_0[0]" has no driver File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/DE10_Top_Level.vhd Line: 46
+    Warning (13040): bidirectional pin "GPIO_0[1]" has no driver File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/DE10_Top_Level.vhd Line: 46
+    Warning (13040): bidirectional pin "GPIO_0[2]" has no driver File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/DE10_Top_Level.vhd Line: 46
+    Warning (13040): bidirectional pin "GPIO_0[3]" has no driver File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/DE10_Top_Level.vhd Line: 46
+    Warning (13040): bidirectional pin "GPIO_0[4]" has no driver File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/DE10_Top_Level.vhd Line: 46
+    Warning (13040): bidirectional pin "GPIO_0[5]" has no driver File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/DE10_Top_Level.vhd Line: 46
+    Warning (13040): bidirectional pin "GPIO_0[6]" has no driver File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/DE10_Top_Level.vhd Line: 46
+    Warning (13040): bidirectional pin "GPIO_0[7]" has no driver File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/DE10_Top_Level.vhd Line: 46
+    Warning (13040): bidirectional pin "GPIO_0[8]" has no driver File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/DE10_Top_Level.vhd Line: 46
+    Warning (13040): bidirectional pin "GPIO_0[9]" has no driver File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/DE10_Top_Level.vhd Line: 46
+    Warning (13040): bidirectional pin "GPIO_0[10]" has no driver File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/DE10_Top_Level.vhd Line: 46
+    Warning (13040): bidirectional pin "GPIO_0[11]" has no driver File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/DE10_Top_Level.vhd Line: 46
+    Warning (13040): bidirectional pin "GPIO_0[12]" has no driver File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/DE10_Top_Level.vhd Line: 46
+    Warning (13040): bidirectional pin "GPIO_0[13]" has no driver File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/DE10_Top_Level.vhd Line: 46
+    Warning (13040): bidirectional pin "GPIO_0[14]" has no driver File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/DE10_Top_Level.vhd Line: 46
+    Warning (13040): bidirectional pin "GPIO_0[15]" has no driver File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/DE10_Top_Level.vhd Line: 46
+    Warning (13040): bidirectional pin "GPIO_0[16]" has no driver File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/DE10_Top_Level.vhd Line: 46
+    Warning (13040): bidirectional pin "GPIO_0[17]" has no driver File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/DE10_Top_Level.vhd Line: 46
+    Warning (13040): bidirectional pin "GPIO_0[18]" has no driver File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/DE10_Top_Level.vhd Line: 46
+    Warning (13040): bidirectional pin "GPIO_0[19]" has no driver File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/DE10_Top_Level.vhd Line: 46
+    Warning (13040): bidirectional pin "GPIO_0[20]" has no driver File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/DE10_Top_Level.vhd Line: 46
+    Warning (13040): bidirectional pin "GPIO_0[21]" has no driver File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/DE10_Top_Level.vhd Line: 46
+    Warning (13040): bidirectional pin "GPIO_0[22]" has no driver File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/DE10_Top_Level.vhd Line: 46
+    Warning (13040): bidirectional pin "GPIO_0[23]" has no driver File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/DE10_Top_Level.vhd Line: 46
+    Warning (13040): bidirectional pin "GPIO_0[24]" has no driver File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/DE10_Top_Level.vhd Line: 46
+    Warning (13040): bidirectional pin "GPIO_0[25]" has no driver File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/DE10_Top_Level.vhd Line: 46
+    Warning (13040): bidirectional pin "GPIO_0[26]" has no driver File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/DE10_Top_Level.vhd Line: 46
+    Warning (13040): bidirectional pin "GPIO_0[27]" has no driver File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/DE10_Top_Level.vhd Line: 46
+    Warning (13040): bidirectional pin "GPIO_0[28]" has no driver File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/DE10_Top_Level.vhd Line: 46
+    Warning (13040): bidirectional pin "GPIO_0[29]" has no driver File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/DE10_Top_Level.vhd Line: 46
+    Warning (13040): bidirectional pin "GPIO_0[30]" has no driver File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/DE10_Top_Level.vhd Line: 46
+    Warning (13040): bidirectional pin "GPIO_0[31]" has no driver File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/DE10_Top_Level.vhd Line: 46
+    Warning (13040): bidirectional pin "GPIO_0[32]" has no driver File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/DE10_Top_Level.vhd Line: 46
+    Warning (13040): bidirectional pin "GPIO_0[33]" has no driver File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/DE10_Top_Level.vhd Line: 46
+    Warning (13040): bidirectional pin "GPIO_0[34]" has no driver File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/DE10_Top_Level.vhd Line: 46
+    Warning (13040): bidirectional pin "GPIO_0[35]" has no driver File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/DE10_Top_Level.vhd Line: 46
+    Warning (13040): bidirectional pin "GPIO_1[0]" has no driver File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/DE10_Top_Level.vhd Line: 47
+    Warning (13040): bidirectional pin "GPIO_1[1]" has no driver File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/DE10_Top_Level.vhd Line: 47
+    Warning (13040): bidirectional pin "GPIO_1[2]" has no driver File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/DE10_Top_Level.vhd Line: 47
+    Warning (13040): bidirectional pin "GPIO_1[3]" has no driver File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/DE10_Top_Level.vhd Line: 47
+    Warning (13040): bidirectional pin "GPIO_1[4]" has no driver File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/DE10_Top_Level.vhd Line: 47
+    Warning (13040): bidirectional pin "GPIO_1[5]" has no driver File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/DE10_Top_Level.vhd Line: 47
+    Warning (13040): bidirectional pin "GPIO_1[6]" has no driver File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/DE10_Top_Level.vhd Line: 47
+    Warning (13040): bidirectional pin "GPIO_1[7]" has no driver File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/DE10_Top_Level.vhd Line: 47
+    Warning (13040): bidirectional pin "GPIO_1[8]" has no driver File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/DE10_Top_Level.vhd Line: 47
+    Warning (13040): bidirectional pin "GPIO_1[9]" has no driver File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/DE10_Top_Level.vhd Line: 47
+    Warning (13040): bidirectional pin "GPIO_1[10]" has no driver File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/DE10_Top_Level.vhd Line: 47
+    Warning (13040): bidirectional pin "GPIO_1[11]" has no driver File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/DE10_Top_Level.vhd Line: 47
+    Warning (13040): bidirectional pin "GPIO_1[12]" has no driver File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/DE10_Top_Level.vhd Line: 47
+    Warning (13040): bidirectional pin "GPIO_1[13]" has no driver File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/DE10_Top_Level.vhd Line: 47
+    Warning (13040): bidirectional pin "GPIO_1[14]" has no driver File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/DE10_Top_Level.vhd Line: 47
+    Warning (13040): bidirectional pin "GPIO_1[15]" has no driver File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/DE10_Top_Level.vhd Line: 47
+    Warning (13040): bidirectional pin "GPIO_1[16]" has no driver File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/DE10_Top_Level.vhd Line: 47
+    Warning (13040): bidirectional pin "GPIO_1[17]" has no driver File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/DE10_Top_Level.vhd Line: 47
+    Warning (13040): bidirectional pin "GPIO_1[18]" has no driver File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/DE10_Top_Level.vhd Line: 47
+    Warning (13040): bidirectional pin "GPIO_1[19]" has no driver File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/DE10_Top_Level.vhd Line: 47
+    Warning (13040): bidirectional pin "GPIO_1[20]" has no driver File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/DE10_Top_Level.vhd Line: 47
+    Warning (13040): bidirectional pin "GPIO_1[21]" has no driver File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/DE10_Top_Level.vhd Line: 47
+    Warning (13040): bidirectional pin "GPIO_1[22]" has no driver File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/DE10_Top_Level.vhd Line: 47
+    Warning (13040): bidirectional pin "GPIO_1[23]" has no driver File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/DE10_Top_Level.vhd Line: 47
+    Warning (13040): bidirectional pin "GPIO_1[24]" has no driver File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/DE10_Top_Level.vhd Line: 47
+    Warning (13040): bidirectional pin "GPIO_1[25]" has no driver File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/DE10_Top_Level.vhd Line: 47
+    Warning (13040): bidirectional pin "GPIO_1[26]" has no driver File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/DE10_Top_Level.vhd Line: 47
+    Warning (13040): bidirectional pin "GPIO_1[27]" has no driver File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/DE10_Top_Level.vhd Line: 47
+    Warning (13040): bidirectional pin "GPIO_1[28]" has no driver File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/DE10_Top_Level.vhd Line: 47
+    Warning (13040): bidirectional pin "GPIO_1[29]" has no driver File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/DE10_Top_Level.vhd Line: 47
+    Warning (13040): bidirectional pin "GPIO_1[30]" has no driver File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/DE10_Top_Level.vhd Line: 47
+    Warning (13040): bidirectional pin "GPIO_1[31]" has no driver File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/DE10_Top_Level.vhd Line: 47
+    Warning (13040): bidirectional pin "GPIO_1[32]" has no driver File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/DE10_Top_Level.vhd Line: 47
+    Warning (13040): bidirectional pin "GPIO_1[33]" has no driver File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/DE10_Top_Level.vhd Line: 47
+    Warning (13040): bidirectional pin "GPIO_1[34]" has no driver File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/DE10_Top_Level.vhd Line: 47
+    Warning (13040): bidirectional pin "GPIO_1[35]" has no driver File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/DE10_Top_Level.vhd Line: 47
+Warning (13012): Latch LED_control:LED1|next_state.s5_648 has unsafe behavior File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/LED_control.vhd Line: 186
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal LED_control:LED1|counter_flag File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/LED_control.vhd Line: 42
+Warning (13012): Latch LED_control:LED1|next_state.s4_656 has unsafe behavior File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/LED_control.vhd Line: 186
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal LED_control:LED1|counter_flag File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/LED_control.vhd Line: 42
+Warning (13012): Latch LED_control:LED1|next_state.s3_664 has unsafe behavior File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/LED_control.vhd Line: 186
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal LED_control:LED1|counter_flag File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/LED_control.vhd Line: 42
+Warning (13012): Latch LED_control:LED1|next_state.s2_672 has unsafe behavior File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/LED_control.vhd Line: 186
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal LED_control:LED1|counter_flag File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/LED_control.vhd Line: 42
+Warning (13012): Latch LED_control:LED1|next_state.s1_680 has unsafe behavior File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/LED_control.vhd Line: 186
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal LED_control:LED1|counter_flag File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/LED_control.vhd Line: 42
+Warning (13012): Latch LED_control:LED1|next_state.s0_688 has unsafe behavior File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/LED_control.vhd Line: 186
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal LED_control:LED1|counter_flag File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/LED_control.vhd Line: 42
+Warning (13012): Latch LED_control:LED1|LED_state.s4_572 has unsafe behavior File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/LED_control.vhd Line: 186
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal SW[2] File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/DE10_Top_Level.vhd Line: 36
+Warning (13012): Latch LED_control:LED1|LED_state.s3_588 has unsafe behavior File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/LED_control.vhd Line: 186
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal SW[0] File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/DE10_Top_Level.vhd Line: 36
+Warning (13012): Latch LED_control:LED1|LED_state.s2_604 has unsafe behavior File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/LED_control.vhd Line: 186
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal SW[0] File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/DE10_Top_Level.vhd Line: 36
+Warning (13012): Latch LED_control:LED1|LED_state.s1_620 has unsafe behavior File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/LED_control.vhd Line: 186
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal SW[0] File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/DE10_Top_Level.vhd Line: 36
+Warning (13012): Latch LED_control:LED1|LED_state.s0_636 has unsafe behavior File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/LED_control.vhd Line: 186
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal SW[0] File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/DE10_Top_Level.vhd Line: 36
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 56 registers lost all their fanouts during netlist optimizations.
+Warning (20013): Ignored 24 assignments for entity "DE10Nano_System" -- entity does not exist in design
+    Warning (20014): Assignment for entity set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -entity DE10Nano_System -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -entity DE10Nano_System -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -entity DE10Nano_System -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_PRESERVE_HIGH_SPEED_TILES ON -entity DE10Nano_System -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IGNORE_SOURCE_FILE_CHANGES OFF -entity DE10Nano_System -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_ALWAYS_USE_QXP_NETLIST OFF -entity DE10Nano_System -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_COLOR 16764057 -entity DE10Nano_System -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_ASSIGNMENTS ON -entity DE10Nano_System -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_EXISTING_ASSIGNMENTS REPLACE_CONFLICTING -entity DE10Nano_System -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_EXISTING_LOGICLOCK_REGIONS UPDATE_CONFLICTING -entity DE10Nano_System -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_PIN_ASSIGNMENTS ON -entity DE10Nano_System -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_PROMOTE_ASSIGNMENTS ON -entity DE10Nano_System -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_TYPE STANDARD_PARTITION -entity DE10Nano_System -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name ALLOW_MULTIPLE_PERSONAS OFF -entity DE10Nano_System -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_ASD_REGION_ID 1 -entity DE10Nano_System -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name CROSS_BOUNDARY_OPTIMIZATIONS OFF -entity DE10Nano_System -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PROPAGATE_CONSTANTS_ON_INPUTS ON -entity DE10Nano_System -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PROPAGATE_INVERSIONS_ON_INPUTS ON -entity DE10Nano_System -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name REMOVE_LOGIC_ON_UNCONNECTED_OUTPUTS ON -entity DE10Nano_System -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name MERGE_EQUIVALENT_INPUTS ON -entity DE10Nano_System -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name MERGE_EQUIVALENT_BIDIRS ON -entity DE10Nano_System -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name ABSORB_PATHS_FROM_OUTPUTS_TO_INPUTS ON -entity DE10Nano_System -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_EXTRACT_HARD_BLOCK_NODES ON -entity DE10Nano_System -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_ENABLE_STRICT_PRESERVATION OFF -entity DE10Nano_System -section_id Top was ignored
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 2 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "FPGA_CLK2_50" File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/DE10_Top_Level.vhd Line: 22
+    Warning (15610): No output dependent on input pin "FPGA_CLK3_50" File: C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 4/DE10_Top_Level.vhd Line: 23
+Info (21057): Implemented 425 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 9 input pins
+    Info (21059): Implemented 8 output pins
+    Info (21060): Implemented 72 bidirectional pins
+    Info (21061): Implemented 330 logic cells
+    Info (21062): Implemented 6 DSP elements
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 151 warnings
+    Info: Peak virtual memory: 4867 megabytes
+    Info: Processing ended: Mon Oct 28 21:28:58 2019
+    Info: Elapsed time: 00:00:18
+    Info: Total CPU time (on all processors): 00:00:30
+
+

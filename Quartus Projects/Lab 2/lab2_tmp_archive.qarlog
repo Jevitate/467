@@ -1,0 +1,22 @@
+Quartus Prime Archive log --	C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 2/lab2_tmp_archive.qarlog
+
+Archive:	C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 2/lab2_tmp_archive.qar
+Date:		Tue Sep 24 13:16:33 2019
+Quartus Prime		17.1.1 Internal Build 593 12/11/2017 SJ Lite Edition
+
+	=========== Files Selected: ===========
+C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 2/DE10.sdc
+C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 2/DE10_Top_Level.qsf
+C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 2/DE10_Top_Level.vhd
+C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 2/lab2.qpf
+c:/intelfpga_lite/17.1/quartus/bin64/assignment_defaults.qdf
+	======= Total: 5 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.
+
+
+******* Archived project restoration attempt on Tue Sep 24 13:16:35 2019
+Source archive file:	C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/Lab 2/lab2_tmp_archive.qar
+Archive was extracted into	C:/Users/mc_gr/Desktop/EELE 467/Quartus Projects/new Lab 4/
+		 - successfully.

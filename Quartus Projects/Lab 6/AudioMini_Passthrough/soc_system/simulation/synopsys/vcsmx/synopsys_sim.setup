@@ -1,0 +1,12 @@
+
+WORK > DEFAULT
+DEFAULT:               ./libraries/work/                 
+work:                  ./libraries/work/                 
+PLL_using_AD1939_MCLK: ./libraries/PLL_using_AD1939_MCLK/
+altera:                ./libraries/altera/               
+lpm:                   ./libraries/lpm/                  
+sgate:                 ./libraries/sgate/                
+altera_mf:             ./libraries/altera_mf/            
+altera_lnsim:          ./libraries/altera_lnsim/         
+cyclonev:              ./libraries/cyclonev/             
+LIBRARY_SCAN = TRUE
